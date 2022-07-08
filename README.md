@@ -3,6 +3,14 @@ aruco_ros
 
 Software package and ROS wrappers of the [Aruco][1] Augmented Reality marker detector library.
 
+### Usage with different tag sizes
+
+Change the parameters in aruco_ros/quad.launch and run it with the following command:
+
+```
+roslaunch aruco_ros quad.launch
+```
+
 
 ### Features
 <img align="right" src="https://raw.github.com/pal-robotics/aruco_ros/master/aruco_ros/etc/marker_in_hand.jpg" />
