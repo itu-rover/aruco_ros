@@ -36,29 +36,19 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
 )
-add_library(aruco_ros_utils src/aruco_ros_utils.cpp)
-target_link_libraries(aruco_ros_utils ${catkin_LIBRARIES})
 
-add_executable(single src/simple_single.cpp
+
+add_executable(quadruple src/simple_quadruple.cpp
                       src/aruco_ros_utils.cpp)
-add_dependencies(single ${PROJECT_NAME}_gencfg)
-target_link_libraries(single ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
-add_executable(double src/simple_double.cpp
-                      src/aruco_ros_utils.cpp)
-add_dependencies(double ${PROJECT_NAME}_gencfg)
-target_link_libraries(double ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
-
-add_executable(marker_publisher src/marker_publish.cpp
-                                src/aruco_ros_utils.cpp)
-add_dependencies(marker_publisher ${PROJECT_NAME}_gencfg ${catkin_EXPORTED_TARGETS})
-target_link_libraries(marker_publisher ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_dependencies(quadruple ${PROJECT_NAME}_gencfg)
+target_link_libraries(quadruple ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 #############
 ## Install ##
 #############
 
-install(TARGETS single double marker_publisher aruco_ros_utils
+install(TARGETS quadruple 
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
